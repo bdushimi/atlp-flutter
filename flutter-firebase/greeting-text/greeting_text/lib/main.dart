@@ -10,8 +10,12 @@ class HelloFlutterApp extends StatefulWidget {
 String englishGreeting = "Hello Flutter !";
 String kinyarwandaGreeting = "Muraho Flutter !";
 
+FontWeight fontWeightBold = FontWeight.bold;
+FontWeight fontWeightNormal = FontWeight.normal;
+
 class _HelloFlutterAppState extends State<HelloFlutterApp> {
   String displayText = englishGreeting;
+  FontWeight textFontWeight = fontWeightNormal;
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +32,18 @@ class _HelloFlutterAppState extends State<HelloFlutterApp> {
                         displayText = displayText == englishGreeting
                             ? kinyarwandaGreeting
                             : englishGreeting;
+
+                        textFontWeight = textFontWeight == fontWeightNormal
+                            ? fontWeightBold
+                            : fontWeightNormal;
                       });
                     },
                     icon: Icon(Icons.refresh))
               ],
             ),
             body: Center(
-                child: Text(
-                  displayText, 
-                  style: TextStyle(fontSize: 24)))));
+                child: Text(displayText,
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: textFontWeight)))));
   }
 }
