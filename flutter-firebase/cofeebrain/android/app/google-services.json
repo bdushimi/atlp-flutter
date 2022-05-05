@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "131604035065",
+    "project_id": "coffeebrain-acf97",
+    "storage_bucket": "coffeebrain-acf97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131604035065:android:905d3b9e15480f400c7928",
+        "android_client_info": {
+          "package_name": "com.dushi.cofeebrain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131604035065-p9k7j95oaqfbpmmam8uplhr37stno11j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dushi.cofeebrain",
+            "certificate_hash": "98d6c7f8ca62f128e6bbf1796cb00fd279b227c3"
+          }
+        },
+        {
+          "client_id": "131604035065-2ppq957k16bdj5cvlsv7t3384e298qmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5z3-P8NKmWivbZX_k7-l1T-_R9zMwrmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131604035065-2ppq957k16bdj5cvlsv7t3384e298qmu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "131604035065-5dpf82s5put2clebms5akpcgu3oluurg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dushi.cofeebrain"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

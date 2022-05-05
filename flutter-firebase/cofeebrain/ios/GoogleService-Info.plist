@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>131604035065-5dpf82s5put2clebms5akpcgu3oluurg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.131604035065-5dpf82s5put2clebms5akpcgu3oluurg</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBnfqTpR28k19y0AoI2ZpG4OybZfFnsbeY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>131604035065</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dushi.cofeebrain</string>
+	<key>PROJECT_ID</key>
+	<string>coffeebrain-acf97</string>
+	<key>STORAGE_BUCKET</key>
+	<string>coffeebrain-acf97.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:131604035065:ios:533b4886bcbe42710c7928</string>
+</dict>
+</plist>
