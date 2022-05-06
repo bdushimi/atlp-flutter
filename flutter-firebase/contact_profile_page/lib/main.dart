@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 
-class ContactProfilePage extends StatelessWidget {
+enum APP_THEME { LIGHT, DARK }
+
+class ContactProfilePage extends StatefulWidget {
+  @override
+  _ContactProfilePageState createState() => _ContactProfilePageState();
+}
+
+var currentTheme = APP_THEME.LIGHT;
+
+class _ContactProfilePageState extends State<ContactProfilePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: MyAppThemes.appThemeDark(),
-      home: Scaffold(
+        debugShowCheckedModeBanner: false,
+        theme: currentTheme == APP_THEME.LIGHT
+            ? MyAppThemes.appThemeDark()
+            : MyAppThemes.appThemeLight(),
+        home: Scaffold(
           appBar: AppBar(
             leading: Icon(Icons.arrow_back),
             actions: <Widget>[
@@ -61,8 +72,20 @@ class ContactProfilePage extends StatelessWidget {
                 addressListTile(),
               ])
             ],
-          )),
-    );
+          ),
+          floatingActionButton: FloatingActionButton.extended(
+            icon: Icon(Icons.threesixty),
+            label: const Text(''),
+            onPressed: () {
+              setState(() {
+                //NEW CODE: Currently selected theme toggles when FAB is pressed
+                currentTheme == APP_THEME.DARK
+                    ? currentTheme = APP_THEME.LIGHT
+                    : currentTheme = APP_THEME.DARK;
+              });
+            },
+          ),
+        ));
   }
 }
 
@@ -192,20 +215,18 @@ Widget addressListTile() {
 class MyAppThemes {
   static ThemeData appThemeDark() {
     return ThemeData(
-
       // Define the default brightness and colors for the overall app.
       brightness: Brightness.dark,
 
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.black, foregroundColor: Colors.white),
+
       // Define color for app's icon
-      iconTheme : IconThemeData(
-        color: Colors.orange
-      ),
+      iconTheme: IconThemeData(color: Colors.orange),
 
       appBarTheme: AppBarTheme(
         color: Colors.black,
-        iconTheme: IconThemeData(
-          color:Colors.white
-        ),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
     );
   }
@@ -214,6 +235,9 @@ class MyAppThemes {
     return ThemeData(
       // Defines the default brightness and colors for the overall app
       brightness: Brightness.light,
+
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.white, foregroundColor: Colors.black),
 
       // Define theme for appBar
       appBarTheme: AppBarTheme(
