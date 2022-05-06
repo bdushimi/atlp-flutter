@@ -5,16 +5,35 @@ class ContactProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        // Defines the default brightness and colors for the overall app
+        brightness: Brightness.light,
+
+        // Define theme for appBar
+        appBarTheme: AppBarTheme(
+          color: Colors.white,
+
+          // Define theme for Icon at appBar level
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+        ),
+
+        // Define theme for Icon at app level
+        iconTheme: IconThemeData(
+          color: Colors.indigo.shade800,
+        ),
+
+      ),
       home: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.purple,
             leading: Icon(Icons.arrow_back, color: Colors.black),
             actions: <Widget>[
               IconButton(
                   onPressed: () {
                     print("Contact is starred");
                   },
-                  icon: Icon(Icons.star, color: Colors.black))
+                  icon: Icon(Icons.star))
             ],
           ),
           body: ListView(
@@ -43,8 +62,24 @@ class ContactProfilePage extends StatelessWidget {
                         children: <Widget>[
                           buildCallButtom(),
                           buildTextButton(),
-                          
+                          buildVideoButton(),
+                          buildEmailButton(),
+                          buildDirectionButton(),
+                          buildPaymentButton(),
                         ])),
+                Divider(
+                  color: Colors.grey,
+                ),
+                mobilePhoneListTile(),
+                otherPhoneListTile(),
+                Divider(
+                  color: Colors.grey,
+                ),
+                emailListTile(),
+                Divider(
+                  color: Colors.grey,
+                ),
+                addressListTile(),
               ])
             ],
           )),
@@ -55,7 +90,7 @@ class ContactProfilePage extends StatelessWidget {
 Widget buildCallButtom() {
   return Column(children: <Widget>[
     IconButton(
-      icon: Icon(Icons.call, color: Colors.indigo.shade800),
+      icon: Icon(Icons.call),
       onPressed: () {
         print("Call button is pressed");
       },
@@ -67,13 +102,103 @@ Widget buildCallButtom() {
 Widget buildTextButton() {
   return Column(children: <Widget>[
     IconButton(
-      icon: Icon(Icons.message, color: Colors.indigo.shade800),
+      icon: Icon(Icons.message,),
       onPressed: () {
         print("Text button is pressed");
       },
     ),
     Text("Text")
   ]);
+}
+
+Widget buildVideoButton() {
+  return Column(children: <Widget>[
+    IconButton(
+      icon: Icon(Icons.video_call),
+      onPressed: () {
+        print("Video button is pressed");
+      },
+    ),
+    Text("Video")
+  ]);
+}
+
+Widget buildEmailButton() {
+  return Column(children: <Widget>[
+    IconButton(
+      icon: Icon(Icons.email),
+      onPressed: () {
+        print("Email button is pressed");
+      },
+    ),
+    Text("Email")
+  ]);
+}
+
+Widget buildDirectionButton() {
+  return Column(children: <Widget>[
+    IconButton(
+      icon: Icon(Icons.directions),
+      onPressed: () {
+        print("Directions button is pressed");
+      },
+    ),
+    Text("Directions")
+  ]);
+}
+
+Widget buildPaymentButton() {
+  return Column(children: <Widget>[
+    IconButton(
+      icon: Icon(Icons.attach_money),
+      onPressed: () {
+        print("Payment button is pressed");
+      },
+    ),
+    Text("Payment")
+  ]);
+}
+
+Widget mobilePhoneListTile() {
+  return ListTile(
+    leading: Icon(Icons.call),
+    title: Text("+250-788-123-456"),
+    subtitle: Text("Mobile"),
+    trailing: IconButton(
+        icon: Icon(Icons.message),
+        onPressed: () {}),
+  );
+}
+
+Widget otherPhoneListTile() {
+  return ListTile(
+    leading: Text(""),
+    title: Text("+250-722-123-456"),
+    subtitle: Text("Home"),
+    trailing: IconButton(
+        icon: Icon(Icons.message),
+        onPressed: () {}),
+  );
+}
+
+Widget emailListTile() {
+  return ListTile(
+    leading: Icon(Icons.email),
+    title: Text("mathberd@gmail.com"),
+    subtitle: Text("Personal"),
+  );
+}
+
+Widget addressListTile() {
+  return ListTile(
+    leading: Icon(Icons.location_on),
+    title: Text("Kigali, Rwanda"),
+    subtitle: Text("Home"),
+    trailing: IconButton(
+      icon: Icon(Icons.directions),
+      onPressed: () {}
+    ),
+  );
 }
 
 void main() => runApp(ContactProfilePage());
