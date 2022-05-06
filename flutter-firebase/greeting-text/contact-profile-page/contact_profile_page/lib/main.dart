@@ -5,29 +5,10 @@ class ContactProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        // Defines the default brightness and colors for the overall app
-        brightness: Brightness.light,
-
-        // Define theme for appBar
-        appBarTheme: AppBarTheme(
-          color: Colors.white,
-
-          // Define theme for Icon at appBar level
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
-        ),
-
-        // Define theme for Icon at app level
-        iconTheme: IconThemeData(
-          color: Colors.indigo.shade800,
-        ),
-
-      ),
+      theme: MyAppThemes.appThemeDark(),
       home: Scaffold(
           appBar: AppBar(
-            leading: Icon(Icons.arrow_back, color: Colors.black),
+            leading: Icon(Icons.arrow_back),
             actions: <Widget>[
               IconButton(
                   onPressed: () {
@@ -56,17 +37,15 @@ class ContactProfilePage extends StatelessWidget {
                                   style: TextStyle(fontSize: 30)))
                         ])),
                 Container(
-                    margin: const EdgeInsets.only(top: 8, bottom: 8),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          buildCallButtom(),
-                          buildTextButton(),
-                          buildVideoButton(),
-                          buildEmailButton(),
-                          buildDirectionButton(),
-                          buildPaymentButton(),
-                        ])),
+                  margin: const EdgeInsets.only(top: 8, bottom: 8),
+
+                  // Define theme for this local child
+                  child: Theme(
+                    data:
+                        ThemeData(iconTheme: IconThemeData(color: Colors.red)),
+                    child: profileCallToActionItems(),
+                  ),
+                ),
                 Divider(
                   color: Colors.grey,
                 ),
@@ -102,7 +81,9 @@ Widget buildCallButtom() {
 Widget buildTextButton() {
   return Column(children: <Widget>[
     IconButton(
-      icon: Icon(Icons.message,),
+      icon: Icon(
+        Icons.message,
+      ),
       onPressed: () {
         print("Text button is pressed");
       },
@@ -121,6 +102,20 @@ Widget buildVideoButton() {
     ),
     Text("Video")
   ]);
+}
+
+Widget profileCallToActionItems() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: <Widget>[
+      buildCallButtom(),
+      buildTextButton(),
+      buildVideoButton(),
+      buildEmailButton(),
+      buildDirectionButton(),
+      buildPaymentButton(),
+    ],
+  );
 }
 
 Widget buildEmailButton() {
@@ -164,9 +159,7 @@ Widget mobilePhoneListTile() {
     leading: Icon(Icons.call),
     title: Text("+250-788-123-456"),
     subtitle: Text("Mobile"),
-    trailing: IconButton(
-        icon: Icon(Icons.message),
-        onPressed: () {}),
+    trailing: IconButton(icon: Icon(Icons.message), onPressed: () {}),
   );
 }
 
@@ -175,9 +168,7 @@ Widget otherPhoneListTile() {
     leading: Text(""),
     title: Text("+250-722-123-456"),
     subtitle: Text("Home"),
-    trailing: IconButton(
-        icon: Icon(Icons.message),
-        onPressed: () {}),
+    trailing: IconButton(icon: Icon(Icons.message), onPressed: () {}),
   );
 }
 
@@ -194,11 +185,52 @@ Widget addressListTile() {
     leading: Icon(Icons.location_on),
     title: Text("Kigali, Rwanda"),
     subtitle: Text("Home"),
-    trailing: IconButton(
-      icon: Icon(Icons.directions),
-      onPressed: () {}
-    ),
+    trailing: IconButton(icon: Icon(Icons.directions), onPressed: () {}),
   );
+}
+
+class MyAppThemes {
+  static ThemeData appThemeDark() {
+    return ThemeData(
+
+      // Define the default brightness and colors for the overall app.
+      brightness: Brightness.dark,
+
+      // Define color for app's icon
+      iconTheme : IconThemeData(
+        color: Colors.orange
+      ),
+
+      appBarTheme: AppBarTheme(
+        color: Colors.black,
+        iconTheme: IconThemeData(
+          color:Colors.white
+        ),
+      ),
+    );
+  }
+
+  static ThemeData appThemeLight() {
+    return ThemeData(
+      // Defines the default brightness and colors for the overall app
+      brightness: Brightness.light,
+
+      // Define theme for appBar
+      appBarTheme: AppBarTheme(
+        color: Colors.white,
+
+        // Define theme for Icon at appBar level
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+      ),
+
+      // Define theme for Icon at app level
+      iconTheme: IconThemeData(
+        color: Colors.indigo.shade800,
+      ),
+    );
+  }
 }
 
 void main() => runApp(ContactProfilePage());
