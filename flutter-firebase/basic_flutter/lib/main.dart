@@ -11,22 +11,54 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Container App',
+        title: 'Timer App',
         home: Scaffold(
+            backgroundColor: Colors.indigo[100],
             appBar: AppBar(
-              title: const Text('Container App'),
+              title: const Text('Timer App'),
             ),
-            body: Container(
-              width: 100,
-              height: 100,
-              margin: const EdgeInsets.only(left:50),
-              decoration: const BoxDecoration(
-                color: Colors.orange,
-                shape: BoxShape.rectangle,
-                borderRadius:BorderRadius.all(
-                  Radius.circular(30)
-                ),
-              ),
-            )));
+            body: const Home(),
+            ));
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final sizeX = MediaQuery.of(context).size.width;
+    final sizeY = MediaQuery.of(context).size.height;
+    return Container(
+      width: sizeX,
+      height: sizeY,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: createSquares(5),
+      )
+    );
+  }
+
+     List<Widget> createSquares(int numSquares) {
+    int i = 0;
+    List colors = [
+      Colors.amber,
+      Colors.deepPurple,
+      Colors.deepOrange,
+      Colors.indigo,
+      Colors.lightBlue
+    ];
+
+    List<Widget> squares = [];
+
+    while (i < numSquares) {
+      Container square = Container(
+          color: colors[i], width: 60, height: 60, child: Text(i.toString()));
+      i++;
+      squares.add(square);
+    }
+
+    return squares;
   }
 }
