@@ -20,9 +20,9 @@ class SignUpForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextFieldName(text: "Username"),
+          const TextFieldName(text: "Username"),
           TextFormField(
-            decoration: InputDecoration(hintText: "theflutterway"),
+            decoration: const InputDecoration(hintText: "theflutterway"),
             validator: RequiredValidator(errorText: "Username is required"),
             // Let's save our username
             onSaved: (username) => _userName = username!,
@@ -31,29 +31,29 @@ class SignUpForm extends StatelessWidget {
           // We will fixed the error soon
           // As you can see, it's a email field
           // But no @ on keybord
-          TextFieldName(text: "Email"),
+          const TextFieldName(text: "Email"),
           TextFormField(
             keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(hintText: "test@email.com"),
+            decoration: const InputDecoration(hintText: "test@email.com"),
             validator: EmailValidator(errorText: "Use a valid email!"),
             onSaved: (email) => _email = email!,
           ),
           const SizedBox(height: defaultPadding),
-          TextFieldName(text: "Phone"),
+          const TextFieldName(text: "Phone"),
           // Same for phone number
           TextFormField(
             keyboardType: TextInputType.phone,
-            decoration: InputDecoration(hintText: "+123487697"),
+            decoration: const InputDecoration(hintText: "+123487697"),
             validator: RequiredValidator(errorText: "Phone number is required"),
             onSaved: (phoneNumber) => _phoneNumber = phoneNumber!,
           ),
           const SizedBox(height: defaultPadding),
-          TextFieldName(text: "Password"),
+          const TextFieldName(text: "Password"),
 
           TextFormField(
             // We want to hide our password
             obscureText: true,
-            decoration: InputDecoration(hintText: "******"),
+            decoration: const InputDecoration(hintText: "******"),
             validator: (text) {
               if (text == null || text.isEmpty) {
                 return 'Can\'t be empty';
@@ -69,10 +69,10 @@ class SignUpForm extends StatelessWidget {
             onChanged: (pass) => _password = pass,
           ),
           const SizedBox(height: defaultPadding),
-          TextFieldName(text: "Confirm Password"),
+          const TextFieldName(text: "Confirm Password"),
           TextFormField(
             obscureText: true,
-            decoration: InputDecoration(hintText: "*****"),
+            decoration: const InputDecoration(hintText: "*****"),
             validator: (pass) => MatchValidator(errorText: "Password do not  match").validateMatch(pass!, _password),
           ),
         ],
@@ -95,7 +95,7 @@ class TextFieldName extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: defaultPadding / 3),
       child: Text(
         text,
-        style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black54),
+        style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.black54),
       ),
     );
   }

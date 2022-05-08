@@ -19,12 +19,10 @@ class WelcomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
               child: Column(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   SvgPicture.asset(
                     "assets/icons/gerda_logo.svg",
                   ),
-                  Spacer(),
-                  // As you can see we need more paddind on our btn
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -35,9 +33,9 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ),
                       style: TextButton.styleFrom(
-                        backgroundColor: Color(0xFF6CD8D1),
+                        backgroundColor: const Color(0xFF6CD8D1),
                       ),
-                      child: Text("Sign Up"),
+                      child: const Text("Sign Up"),
                     ),
                   ),
                   Padding(
@@ -52,14 +50,13 @@ class WelcomeScreen extends StatelessWidget {
                               builder: (context) => SignInScreen(),
                             )),
                         style: TextButton.styleFrom(
-                          // backgroundColor: Color(0xFF6CD8D1),
                           elevation: 0,
                           backgroundColor: Colors.transparent,
-                          shape: RoundedRectangleBorder(
+                          shape: const RoundedRectangleBorder(
                             side: BorderSide(color: Color(0xFF6CD8D1)),
                           ),
                         ),
-                        child: Text("Sign In"),
+                        child: const Text("Sign In"),
                       ),
                     ),
                   ),
