@@ -9,12 +9,14 @@ class WelcomeText extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
         Text('Hi, There!', 
         style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 16, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 10),
-        Text('Welcome to House Rent App'),
+        const SizedBox(height: 10),
+        Text('Welcome to House Rent App',
+        style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
       ]
       ),
     );
