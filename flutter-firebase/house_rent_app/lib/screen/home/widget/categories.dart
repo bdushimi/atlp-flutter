@@ -22,6 +22,7 @@ class _CategoryState extends State<Category> {
     return Container(
       height: 35,
       child: ListView.separated(
+        padding: const EdgeInsets.symmetric(horizontal: 25),
         scrollDirection: Axis.horizontal,
         itemCount: categoriesList.length,
         itemBuilder: (context, index) => GestureDetector(
