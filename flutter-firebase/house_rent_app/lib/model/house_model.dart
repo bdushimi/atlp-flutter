@@ -11,4 +11,11 @@ class House {
       House('House 2', '456 Main St', 'assets/images/house02.jpeg'),
     ];
   }
+
+  static List<House> generateBestOffers() {
+    return [
+      House('House 3', '323 Main St', 'assets/images/offer01.jpeg'),
+      House('House 4', '556 Main St', 'assets/images/offer02.jpeg'),
+    ];
+  }
 }

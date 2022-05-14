@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           surface: Color(0xff000000),
         ),
         textTheme: TextTheme(
-          headline1: const TextStyle(color: Color(0xff100E34)),
+          headline1: const TextStyle(color: Color(0xff811B83)),
           bodyText1: TextStyle(color: const Color(0xff100E34).withOpacity(0.5)),
         ),
       ),
