@@ -1,4 +1,6 @@
-class Task {
+import 'package:equatable/equatable.dart';
+
+class Task extends Equatable {
   final String title;
   final String color;
   final int icon;
@@ -17,4 +19,25 @@ class Task {
           color: color ?? this.color,
           icon: icon ?? this.icon,
           todos: todos ?? this.todos);
+
+  factory Task.fromJson(Map<String, dynamic> json) => Task(
+        title: json["title"],
+        color: json["color"],
+        icon: json["icon"],
+        todos: json["todos"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "title": title,
+        "color": color,
+        "icon": icon,
+        "todos": todos,
+      };
+
+  @override
+  List<Object?> get props => [
+        title,
+        color,
+        icon,
+      ];
 }

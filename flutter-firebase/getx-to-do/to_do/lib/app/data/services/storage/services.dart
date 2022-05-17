@@ -1,3 +1,5 @@
+// Service querries directly data sources and returns just data in row format.
+
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:to_do/app/core/utils/keys.dart';
