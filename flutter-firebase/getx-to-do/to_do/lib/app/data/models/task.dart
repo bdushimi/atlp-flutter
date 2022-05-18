@@ -6,7 +6,7 @@ class Task extends Equatable {
   final int icon;
   final List<dynamic>? todos; // The ? indicates that this field can be null.
 
-  Task(
+  const Task(
       {required this.title,
       required this.color,
       required this.icon,
